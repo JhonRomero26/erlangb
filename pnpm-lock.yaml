@@ -10,11 +10,13 @@ specifiers:
   react-dom: ^18.2.0
   vite: ^3.2.3
   vite-plugin-static-copy: ^0.12.0
+  wouter: ^2.9.0
 
 dependencies:
   assemblyscript: 0.24.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  wouter: 2.9.0_react@18.2.0
 
 devDependencies:
   '@assemblyscript/loader': 0.24.1
@@ -1117,3 +1119,11 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /wouter/2.9.0_react@18.2.0:
+    resolution: {integrity: sha512-cGi9miU5jgwNaybj4sfzY9ZVhU8EwFsncmi2yDvVbS2pL/yz8ZpAMMiELHr4j8w2NLStgI/ltqDluYvBwPhYoQ==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
