@@ -21,16 +21,16 @@ const commonPlugins = [
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  if (mode === "development") {
+  if (mode === "production") {
     return {
-      base: "/",
+      base: "/erlangb/",
       public: "public",
       plugins: commonPlugins,
     };
   }
 
   return {
-    base: "/erlangb/",
+    base: "/",
     public: "public",
     plugins: commonPlugins,
   };
