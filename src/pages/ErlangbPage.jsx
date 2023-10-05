@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
-import wasmMath from "../utils/loadWasm";
+import { lossErlangb } from "../../assembly/build/assembly";
 
 function ErlangbPage() {
   const [valueN, setValueN] = useState(1);
@@ -8,9 +8,7 @@ function ErlangbPage() {
   const [result, setResult] = useState(0);
 
   useEffect(() => {
-    wasmMath.then((res) => {
-      setResult(res.lossErlangb(Number(valueN), Number(valueA)) * 100);
-    });
+    setResult(lossErlangb(Number(valueN), Number(valueA)) * 100);
   }, [valueA, valueN]);
 
   return (

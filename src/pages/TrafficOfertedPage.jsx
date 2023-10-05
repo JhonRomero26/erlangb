@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
-import wasmMath from "../utils/loadWasm";
+import { trafficOfferted } from "../../assembly/build/assembly";
 
 function TrafficOfertedPage() {
   const [valueN, setValueN] = useState(1);
@@ -8,11 +8,7 @@ function TrafficOfertedPage() {
   const [result, setResult] = useState(0);
 
   useEffect(() => {
-    wasmMath.then((res) => {
-      setResult(
-        res.trafficOfferted(Number(valueN), Number(valueB) / 100).toFixed(5)
-      );
-    });
+    setResult(trafficOfferted(Number(valueN), Number(valueB) / 100).toFixed(5));
   }, [valueB, valueN]);
 
   return (

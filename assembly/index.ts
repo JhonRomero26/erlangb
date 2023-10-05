@@ -10,6 +10,20 @@ export function lossErlangb(N: number, A: number): number {
   return B;
 }
 
+export function organsErlangb(A: number, p: number): number {
+  let B: number = 1;
+  let n: number = 1;
+
+  while (1 == 1) {
+    B = (A * B) / n / (1 + (A * B) / n);
+    if (B <= p) break;
+
+    n = n + 1;
+  }
+
+  return n;
+}
+
 export function trafficOfferted(N: number, B: number): number {
   if (N < 1) {
     return 0;
@@ -49,18 +63,4 @@ export function trafficOfferted(N: number, B: number): number {
   }
 
   return left;
-}
-
-export function organsErlangb(A: number, p: number): number {
-  let B: number = 1;
-  let n: number = 1;
-
-  while (1 == 1) {
-    B = (A * B) / n / (1 + (A * B) / n);
-    if (B <= p) break;
-
-    n = n + 1;
-  }
-
-  return n;
 }

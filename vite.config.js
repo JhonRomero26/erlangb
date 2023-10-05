@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { viteStaticCopy } from "vite-plugin-static-copy";
+import topLevelAwait from "vite-plugin-top-level-await";
+import assemblyScriptPlugin from "vite-plugin-assemblyscript-asc";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,13 +9,17 @@ export default defineConfig({
   public: "public",
   plugins: [
     react(),
-    viteStaticCopy({
-      targets: [
-        {
-          src: "src/assembly",
-          dest: "src",
-        },
-      ],
+    assemblyScriptPlugin({
+      projectRoot: ".",
+      srcEntryFile: "assembly/index.ts",
+      configFile: "asconfig.json",
+      srcMatch: "assembly",
+      targetWasmFile: "assembly/build/assembly.wasm",
+      distFolder: "dist",
+    }),
+    topLevelAwait({
+      promiseExportName: "__tla",
+      promiseImportName: (i) => `__tla_${i}`,
     }),
   ],
 });

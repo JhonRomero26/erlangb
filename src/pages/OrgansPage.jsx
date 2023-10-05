@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
-import wasmMath from "../utils/loadWasm";
+import { organsErlangb } from "../../assembly/build/assembly";
 
 function OrgansPage() {
   const [valueA, setValueA] = useState(1);
@@ -8,9 +8,7 @@ function OrgansPage() {
   const [result, setResult] = useState(0);
 
   useEffect(() => {
-    wasmMath.then((res) => {
-      setResult(res.organsErlangb(Number(valueA), Number(valueB) / 100));
-    });
+    setResult(organsErlangb(Number(valueA), Number(valueB) / 100));
   }, [valueB, valueA]);
 
   return (
